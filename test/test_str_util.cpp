@@ -1,26 +1,91 @@
 #include <iostream>
 #include <gtest/gtest.h>
-#include "../include/str_util.h"
+#include "str_util.h"
 
 using namespace std;
 
-TEST(testToUpper, testUpper)
+// Test for to_upper()
+TEST(testToUpper, testAllUpperCase)
 {
    std::string name="SANDEEP";
    to_upper(name); 
    ASSERT_EQ(name, "SANDEEP"); 
 }
 
-TEST(testToUpper, testLower)
+TEST(testToUpper, testAllLowerCase)
 {
    std::string name="sandeep";
    to_upper(name);
    ASSERT_EQ(name, "SANDEEP");
 }
 
-TEST(testToUpper, testMixed)
+TEST(testToUpper, testMixedCase)
 {
    std::string name="sAnDEep";
    to_upper(name);
    ASSERT_EQ(name, "SANDEEP");
+}
+
+// Test for to_lower()
+TEST(testToLower, testAllUpperCase)
+{
+   std::string name="SANDEEP";
+   to_lower(name);
+   ASSERT_EQ(name, "sandeep");
+}
+
+TEST(testToLower, testAllLowerCase)
+{
+   std::string name="sandeep";
+   to_lower(name);
+   ASSERT_EQ(name, "sandeep");
+}
+
+TEST(testToLower, testMixedCase)
+{
+   std::string name="sAnDEep";
+   to_lower(name);
+   ASSERT_EQ(name, "sandeep");
+}
+
+// Test reverse_string()
+TEST(testReverseString, testTrue)
+{
+   std::string name= "sandeep";
+   reverse_string(name);
+   std::cout<<name<<std::endl;
+   ASSERT_EQ(name, "peednas");
+}
+
+//TEST(testReverseString, testFalse)
+//{
+//   std::string name= "sandeep";
+//   reverse_string(name);
+//   ASSERT_EQ(name, "");
+//}
+
+// test length()
+TEST(testLength, testNonZeroLength)
+{
+   std::string name= "sandeep";
+   ASSERT_EQ(length(name), 7);
+}
+
+TEST(testLength, testZeroLength)
+{
+   std::string name="";
+   ASSERT_EQ(length(name), 0);
+}
+
+// test is_palindrome()
+TEST(testIsPalindrome, testTrue)
+{
+   std::string name= "KAYAK";
+   ASSERT_EQ(is_palindrome(name), true);
+}
+
+TEST(testIsPalindrome, testFalse)
+{
+   std::string name= "BANANA";
+   ASSERT_EQ(is_palindrome(name), false);
 }

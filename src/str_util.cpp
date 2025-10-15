@@ -1,4 +1,4 @@
-#include "../include/str_util.h"
+#include "str_util.h"
 
 using namespace std;
 
@@ -63,7 +63,18 @@ bool is_palindrome(const std::string& name)
 
 void reverse_string(std::string&  name)
 {
-   
+   int len= length(name);
+   int start=0, end=len-1;
+
+   while(start<end)
+   {
+      char temp= name[start];
+      name[start]= name[end];
+      name[end]= temp;
+
+      start++;
+      end--;
+   } 
 }
 
 /*int main()

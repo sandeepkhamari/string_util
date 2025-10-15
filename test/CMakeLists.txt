@@ -4,9 +4,11 @@ add_executable(test_str_util test_str_util.cpp)
 #enable testing
 enable_testing()
 
-#ctest
+#use add_test ctest for test discovery.
 #include(CTest)
 include(GoogleTest)
+
+target_include_directories(test_str_util PRIVATE ${CMAKE_SOURCE_DIR}/include)
 
 target_link_libraries(test_str_util PUBLIC str_util /usr/lib/libgtest.a /usr/lib/libgtest_main.a)
 
