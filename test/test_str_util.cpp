@@ -26,6 +26,20 @@ TEST(testToUpper, testMixedCase)
    ASSERT_EQ(name, "SANDEEP");
 }
 
+TEST(testToUpper, testSpecialCharacters)
+{
+   std::string name="*sand_eep";
+   to_upper(name);
+   ASSERT_EQ(name, "*SAND_EEP");
+}
+
+TEST(testToUpper, testNumbers)
+{
+   std::string name= "12345Sandeep";
+   to_upper(name);
+   ASSERT_EQ(name, "12345SANDEEP");
+}
+
 // Test for to_lower()
 TEST(testToLower, testAllUpperCase)
 {
@@ -81,11 +95,13 @@ TEST(testLength, testZeroLength)
 TEST(testIsPalindrome, testTrue)
 {
    std::string name= "KAYAK";
-   ASSERT_EQ(is_palindrome(name), true);
+   //ASSERT_EQ(is_palindrome(name), true);
+   ASSERT_TRUE(is_palindrome(name));
 }
 
 TEST(testIsPalindrome, testFalse)
 {
    std::string name= "BANANA";
-   ASSERT_EQ(is_palindrome(name), false);
+   //ASSERT_EQ(is_palindrome(name), false);
+   ASSERT_FALSE(is_palindrome(name));
 }
